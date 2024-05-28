@@ -1,0 +1,22 @@
+import random
+
+beats = {
+    'rock': 'scissors',
+    'scissors': 'paper',
+    'paper': 'rock'
+}
+
+user_choice = input("Choose rock, paper, or scissors: ").lower()
+
+if user_choice not in beats:
+    print("Invalid choice. Please choose rock, paper, or scissors.")
+else:
+    computer_choice = random.choice(['rock', 'paper', 'scissors'])
+    print(f"Computer chose: {computer_choice}")
+
+    if user_choice == computer_choice:
+        print("It's a tie!")
+    elif beats[user_choice] == computer_choice:
+        print("You win!")
+    else:
+        print("Computer wins!")

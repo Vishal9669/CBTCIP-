@@ -1,0 +1,39 @@
+def give_hint(secret, guess):
+    correct_digits = 0
+    for i in range(len(secret)):
+        if secret[i] == guess[i]:
+            correct_digits += 1
+    return correct_digits
+
+secret_number_p1 = input("Player 1, set the secret number: ")
+
+attempts_p2 = 0
+while True:
+    attempts_p2 += 1
+    guess_p2 = input("Player 2, guess the number: ")
+    if guess_p2 == secret_number_p1:
+        print(f"Player 2 guessed the number in {attempts_p2} attempts!")
+        break
+    else:
+        hint = give_hint(secret_number_p1, guess_p2)
+        print(f"Correct digits in the correct place: {hint}")
+
+print("\nSwitching roles...")
+
+secret_number_p2 = input("Player 2, set the secret number: ")
+
+attempts_p1 = 0
+while True:
+    attempts_p1 += 1
+    guess_p1 = input("Player 1, guess the number: ")
+    if guess_p1 == secret_number_p2:
+        print(f"Player 1 guessed the number in {attempts_p1} attempts!")
+        break
+    else:
+        hint = give_hint(secret_number_p2, guess_p1)
+        print(f"Correct digits in the correct place: {hint}")
+
+if attempts_p1 < attempts_p2:
+    print("Player 1 wins and is crowned Mastermind!")
+else:
+    print("Player 2 wins and is crowned Mastermind!")
